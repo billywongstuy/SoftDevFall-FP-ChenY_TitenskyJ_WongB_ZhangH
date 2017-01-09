@@ -1,2 +1,6 @@
+LexiconArtists
+Project Manager: Billy Wong
+Other Members: Jessica Titensky, Henry Zhang, Yuki Chen
+
 billyW -- 01/09/2017 12:37
-modified design doc
+- modified design doc
