@@ -12,3 +12,6 @@ billyW -- 01/09/2017 12:55
 jessicaT -- 01/10/2017 00:47
 - created database and tables
 - started app.py
+
+henryZ — 01/10/2017 1:56
+- wrote addUser and login in utils
