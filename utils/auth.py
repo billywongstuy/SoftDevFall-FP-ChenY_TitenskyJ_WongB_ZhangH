@@ -1,12 +1,14 @@
 import hashlib, sqlite3, string
 
 
-def addUser(user, password):
+def addUser(user, password, prefLang, nativeLang):
     if (special(user)):
-        return "invlaid character in username"
+        return 2
+        #Error: Invalid character in username
     if (len(password)<8):
-        return "password too short"
-    db=sqlite3.connect('data/tables.db')
+        return 3
+        #"Error: Password too short"
+    db=sqlite3.connect('data/info.db')
     c=db.cursor()
     myHashObj=hashlib.sha1()
     myHashObj.update(password)
@@ -16,26 +18,26 @@ def addUser(user, password):
     for data in userInfo:
         if (user in data):
             db.close()
-            return "ERROR: username already in use"
-    q="INSERT INTO users VALUES (NULL, \""+user+'\", \"'+myHashObj.hexdigest()+'\")'
+            return 4
+            #Error: Username already in use
+    q="INSERT INTO users VALUES (\""+user+'\", \"'+myHashObj.hexdigest()+'\",' +prefLang+"\",\""+ nativeLang + "\")"
     print q
     c.execute(q)
     db.commit()
     db.close()
-    return "registration succesful, enter user and pass to login"
+    return 1
+    #Account successfully created
 
 def userLogin(user, password):
-    db=sqlite3.connect('data/tables.db')
+    db=sqlite3.connect('data/info.db')
     c=db.cursor()
     myHashObj=hashlib.sha1()
     myHashObj.update(password)
     q='SELECT username FROM users'
-    print "hi"
     c.execute(q)
     data=c.fetchall()
     for stuff in data:
         if(user in stuff):
-            print "bye"
             q='SELECT password FROM users WHERE username = "'+user+'";'
             c.execute(q)
             password=c.fetchall()
