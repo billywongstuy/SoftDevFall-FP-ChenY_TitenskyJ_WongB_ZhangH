@@ -20,3 +20,8 @@ yukiC -- 01/10/2017 14:04
 - Base.html basic template
 - Finished Login page
 - Starting on Register page
+
+billyW -- 01/10/2017 18:56
+-facilitated work on project in class
+-clarified questions that members had
+-started to organize priorities
