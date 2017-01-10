@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+<title>Login</title>
+
+{% block navbar %}
+<li><a href="/register"> Register </a></li>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  <h1>Login</h1><br><br>
+  <form method="POST" action="/login">
+    <div class="row">
+      <div class="col-md-6">
+	Username: <input class="form-control" type="text" name="username" placeholder="Username" required>
+      </div>
+    </div><br><br>
+    <div class="row">
+      <div class="col-md-6">
+	Password: <input class="form-control" type="text" name="pw" placeholder="Password" required>
+      </div>
+    </div><br><br>
+    <input class="btn btn-primary" type="submit" value="Login">
+  </form>
+</div>
+{% endblock %}
