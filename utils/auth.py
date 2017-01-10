@@ -1,13 +1,15 @@
 import hashlib, sqlite3, string
 
-
-def addUser(user, password, prefLang, nativeLang):
+def addUser(user, password, cPass, prefLang, nativeLang):
     if (special(user)):
         return 2
         #Error: Invalid character in username
     if (len(password)<8):
         return 3
         #"Error: Password too short"
+    if (password!=cPass):
+        return 5
+        #Error: Passwords do not match
     db=sqlite3.connect('data/info.db')
     c=db.cursor()
     myHashObj=hashlib.sha1()
