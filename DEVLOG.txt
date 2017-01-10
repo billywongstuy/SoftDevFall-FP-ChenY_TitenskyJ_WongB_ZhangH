@@ -15,3 +15,8 @@ jessicaT -- 01/10/2017 00:47
 
 henryZ — 01/10/2017 1:56
 - wrote addUser and login in utils
+
+yukiC -- 01/10/2017 14:04
+- Base.html basic template
+- Finished Login page
+- Starting on Register page
