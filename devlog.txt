@@ -31,3 +31,8 @@ billyW -- 01/10/2017 22:40
 
 jessicaT -- 01/10/2017 22:50
 - did flask stuff for login/register
+
+billyW -- 01/11/2017 13:04
+-facilitated progress
+-fixed app.py create account route a bit
+-updated design doc
