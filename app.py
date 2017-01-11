@@ -21,8 +21,12 @@ def login():
     if x[0]=='False':
         return render_template("login.html",message=x[1])
 
-@app.route("/register", methods=['POST'])
+@app.route("/register")
 def register():
+   return render_template("register.html")
+
+@app.route("/createAccount", methods=['POST'])
+def createAccount():
     x=auth.addUser(request.form['username'],request.form['pw'],request.form['pwc'],request.form['plang'],request.form['nlang'])
     if x==1:
         return render_template("login.html",message="account successfully created")
@@ -39,4 +43,4 @@ def register():
 
 if __name__ == "__main__":
     app.debug = True
-    app.run()
+    app.run()#host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))
