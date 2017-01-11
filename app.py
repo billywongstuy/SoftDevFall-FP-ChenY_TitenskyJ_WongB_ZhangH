@@ -26,8 +26,13 @@ def register():
    return render_template("register.html")
 
 @app.route("/createAccount", methods=['POST'])
+#routing is still messed up
 def createAccount():
-    x=auth.addUser(request.form['username'],request.form['pw'],request.form['pwc'],request.form['plang'],request.form['nlang'])
+    if (request.form['plang2'] == None):
+        plangs = request.form['plang1']
+    else:
+        plangs = request.form['plang1'] + "," + request.form['plang2']
+    x=auth.addUser(request.form['username'],request.form['pw'],request.form['pwc'],plangs,request.form['nlang'])
     if x==1:
         return render_template("login.html",message="account successfully created")
     if x==2:
