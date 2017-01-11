@@ -1,1 +1,9 @@
-testing
+{% extends "base.html" %}
+
+<title>Home</title>
+
+{% block navbar %}
+<li><a href="/post">Post</a></li>
+<li><a href="/account">Account</a></li>
+<li><a href="/logout">Logout</a></li>
+{% endblock %}
