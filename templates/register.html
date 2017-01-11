@@ -3,7 +3,7 @@
 <title>Register</title>
 
 {% block navbar %}
-<li><a href="/login">Login</a></li>
+<li><a href="/">Login</a></li>
 {% endblock %}
 
 {% block body %}
@@ -21,13 +21,37 @@
 	Confirm Password: <input class="form-control" type="password" name="pwc" placeholder="Confirm Password" required>
       </div>
       <div class="col-md-12">
-	Prefered Language 1: <input class="form-control" type="text" name="plang1" placeholder="Prefered Language" required>
+	Prefered Language 1: 
+	<select class="form-control" name="plang1" required>
+	  <option>English</option>
+	  <option>Spanish</option>
+	  <option>Italian</option>
+	  <option>Russian</option>
+	  <option>French</option>
+	  <option>Japanese</option>
+	</select>
       </div>
       <div class="col-md-12">
-	Prefered Language 2: <input class="form-control" type="text" name="plang2" placeholder="Prefered Language">
+	Prefered Language 2:
+	<select class="form-control" name="plang2">
+	  <option>English</option>
+	  <option>Spanish</option>
+	  <option>Italian</option>
+	  <option>Russian</option>
+	  <option>French</option>
+	  <option>Japanese</option>
+	</select>
       </div>
       <div class="col-md-12">
-	Native Language: <input class="form-control" type="text" name="nlang" placeholder="Native Language" required>
+	Native Language: 
+	<select class="form-control" name="nlang">
+	  <option>English</option>
+	  <option>Spanish</option>
+	  <option>Italian</option>
+	  <option>Russian</option>
+	  <option>French</option>
+	  <option>Japanese</option>
+	</select>
       </div>
     </div>
     <input class="btn btn-primary" type="submit" value="Register">
