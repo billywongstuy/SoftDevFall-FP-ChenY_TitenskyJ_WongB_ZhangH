@@ -25,3 +25,6 @@ billyW -- 01/10/2017 18:56
 -facilitated work on project in class
 -clarified questions that members had
 -started to organize priorities
+
+billyW -- 01/10/2017 22:40
+-Debugged the auth.py utils and added commented test case at the bottom
