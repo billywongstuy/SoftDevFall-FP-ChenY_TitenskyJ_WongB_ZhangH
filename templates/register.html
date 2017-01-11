@@ -9,7 +9,7 @@
 {% block body %}
 <div class="container">
   <h1>Register</h1><br><br>
-  <form method="POST" action="/register">
+  <form method="POST" action="/createAccount">
     <div class="row">
       <div class="col-md-12">
 	Username: <input class="form-control" type="text" name="username" placeholder="Username" required>
@@ -21,13 +21,16 @@
 	Confirm Password: <input class="form-control" type="password" name="pwc" placeholder="Confirm Password" required>
       </div>
       <div class="col-md-12">
-	Preffered Language: <input class="form-control" type="text" name="plang" placeholder="Preffered Language" required>
+	Prefered Language 1: <input class="form-control" type="text" name="plang1" placeholder="Prefered Language" required>
+      </div>
+      <div class="col-md-12">
+	Prefered Language 2: <input class="form-control" type="text" name="plang2" placeholder="Prefered Language">
       </div>
       <div class="col-md-12">
 	Native Language: <input class="form-control" type="text" name="nlang" placeholder="Native Language" required>
       </div>
-
     </div>
+    <input class="btn btn-primary" type="submit" value="Register">
   </form>
   {{ message }}
 </div>
