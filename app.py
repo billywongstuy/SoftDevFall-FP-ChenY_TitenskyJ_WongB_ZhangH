@@ -3,11 +3,7 @@ import sqlite3, hashlib, os, utils
 from utils import auth
 
 app = Flask(__name__)
-
-f = open( "utils/key", 'r' )
-app.secret_key = f.read();
-f.close
-
+app.secret_key=os.urandom(32)
 
 @app.route("/")
 def home():
