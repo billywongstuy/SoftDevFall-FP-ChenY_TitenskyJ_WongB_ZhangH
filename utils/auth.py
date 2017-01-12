@@ -12,8 +12,9 @@ def addUser(user, password, cPass, prefLang, nativeLang):
         #Error: Passwords do not match
     db=sqlite3.connect('data/info.db')
     c=db.cursor()
-    myHashObj=hashlib.sha1()
+    myHashObj=hashlib.sha256()
     myHashObj.update(password)
+    print "pc: " + myHashObj.hexdigest()
     q='SELECT * FROM users'
     c.execute(q)
     userInfo=c.fetchall()
@@ -30,11 +31,9 @@ def addUser(user, password, cPass, prefLang, nativeLang):
     return 1
     #Account successfully created
 
-def userLogin(user, password):
+def userLogin(user, pw):
     db=sqlite3.connect('data/info.db')
     c=db.cursor()
-    myHashObj=hashlib.sha1()
-    myHashObj.update(password)
     q='SELECT username FROM users'
     c.execute(q)
     data=c.fetchall()
@@ -47,7 +46,9 @@ def userLogin(user, password):
             #c.execute(q)
             #stuff=c.fetchall()
             db.close()
-            if(myHashObj.hexdigest()==password[0][0]):
+            print password[0][0]
+            print pw
+            if(pw==password[0][0]):
                 return ['True', 'success']
             else:
                 return ['False', 'bad pass']
