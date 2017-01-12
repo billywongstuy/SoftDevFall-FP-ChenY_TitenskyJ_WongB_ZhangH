@@ -14,7 +14,8 @@ def home():
 
 @app.route("/login", methods=['POST'])
 def login():
-    x=auth.userLogin(request.form['username'],request.form['pw'])
+    password = hashlib.sha256(request.form['pw'])
+    x=auth.userLogin(request.form['username'],password.hexdigest())
     if x[0]=='True':
         session['username'] = request.form['username']
         return redirect("/")

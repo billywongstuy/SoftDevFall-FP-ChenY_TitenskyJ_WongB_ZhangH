@@ -14,6 +14,7 @@ def addUser(user, password, cPass, prefLang, nativeLang):
     c=db.cursor()
     myHashObj=hashlib.sha256()
     myHashObj.update(password)
+    print "pc: " + myHashObj.hexdigest()
     q='SELECT * FROM users'
     c.execute(q)
     userInfo=c.fetchall()
@@ -45,6 +46,8 @@ def userLogin(user, pw):
             #c.execute(q)
             #stuff=c.fetchall()
             db.close()
+            print password[0][0]
+            print pw
             if(pw==password[0][0]):
                 return ['True', 'success']
             else:
