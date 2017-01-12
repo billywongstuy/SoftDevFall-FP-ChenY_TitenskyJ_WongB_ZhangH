@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+<title>Write Post</title>
+
+{% block navbar %}
+<li><a href="/account">Account</a></li>
+<li><a href="/logout">Logout</a></li>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+<h3>Write A Post</h3><br><br>
+  <div class="panel-group">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+	{{username}}
+      </div>
+      <div class="panel-body">
+	{{post}}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

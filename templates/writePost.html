@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+<title>Write Post</title>
+
+{% block navbar %}
+<li><a href="/account">Account</a></li>
+<li><a href="/logout">Logout</a></li>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  <div class="panel-group">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+	<h3>Write A Post</h3>
+      </div>
+      <div class="panel-body">
+	<form method="POST" action="/writePost">
+	  Choose your post's language:
+	  <select name="postLang">
+	    <option>English</option>
+	    <option>Italian</option>
+	    <option>Russian</option>
+	    <option>Spanish</option>
+	    <option>Japanese</option>
+	    <option>French</option>
+	  </select>
+	  <br><br>
+	  <div class="form-group">
+	    <textarea></textarea>
+	  </div>
+	  <input class="btn btn-primary" type="submit" value="Post">
+	</form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

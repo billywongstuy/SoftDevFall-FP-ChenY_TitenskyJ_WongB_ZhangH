@@ -5,3 +5,8 @@
 .rightPanel {
     background:#f3f4f6;
 }
+
+textarea {
+    min-width:100%;
+    height:200px;
+}
