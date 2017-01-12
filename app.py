@@ -48,8 +48,19 @@ def createAccount():
     if x==5:
         return render_template("register.html",message="passwords do not match")
 
+@app.route("/logout")
+def logout():
+    session.pop('username')
+    return redirect("/")
 
+@app.route("/post")
+def post():
+    return render_template("test.html")
+
+@app.route("/account")
+def account():
+    return render_template("test.html")
 
 if __name__ == "__main__":
     app.debug = True
-    app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))
+    app.run()#host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))

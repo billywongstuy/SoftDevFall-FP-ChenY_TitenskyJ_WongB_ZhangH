@@ -33,10 +33,14 @@ jessicaT -- 01/10/2017 22:50
 - did flask stuff for login/register
 
 billyW -- 01/11/2017 13:04
--facilitated progress
--fixed app.py create account route a bit
--updated design doc
+- facilitated progress
+- fixed app.py create account route a bit
+- updated design doc
 
 yukiC -- 01/11/2017 13:05
 - add select list in register page for prefered and native languages
 - starting on home page
+
+jessicaT -- 01/12/2017 02:40
+- fixed route for register and added key for session
+- made logout and navbar buttons work 
