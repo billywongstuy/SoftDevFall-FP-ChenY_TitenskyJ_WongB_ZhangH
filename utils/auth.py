@@ -12,7 +12,7 @@ def addUser(user, password, cPass, prefLang, nativeLang):
         #Error: Passwords do not match
     db=sqlite3.connect('data/info.db')
     c=db.cursor()
-    myHashObj=hashlib.sha1()
+    myHashObj=hashlib.sha256()
     myHashObj.update(password)
     q='SELECT * FROM users'
     c.execute(q)
