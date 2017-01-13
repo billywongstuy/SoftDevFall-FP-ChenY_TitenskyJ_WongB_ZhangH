@@ -1,14 +1,15 @@
 {% extends "base.html" %}
-<title>Write Post</title>
+<title>View Post</title>
 
 {% block navbar %}
+<li><a href="createPost">Create Post</a></li>
 <li><a href="/account">Account</a></li>
 <li><a href="/logout">Logout</a></li>
 {% endblock %}
 
 {% block body %}
 <div class="container">
-<h3>Write A Post</h3><br><br>
+<h3>View A Post</h3><br><br>
   <div class="panel-group">
     <div class="panel panel-primary">
       <div class="panel-heading">
@@ -17,6 +18,21 @@
       <div class="panel-body">
 	{{post}}
       </div>
+      Comment or Edit:
+      <select name="type">
+	<option>Comment</option>
+	<option>Edit</option>
+      </select>
+      <br>
+      Choose your language:
+      <select name="commentLang">
+	<option>English</option>
+	<option>Italian</option>
+	<option>Russian</option>
+	<option>Spanish</option>
+	<option>Japanese</option>
+	<option>French</option>
+      </select>
     </div>
   </div>
 </div>
