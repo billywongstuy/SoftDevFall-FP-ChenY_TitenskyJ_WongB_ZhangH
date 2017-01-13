@@ -44,3 +44,8 @@ yukiC -- 01/11/2017 13:05
 jessicaT -- 01/12/2017 02:40
 - fixed route for register and added key for session
 - made logout and navbar buttons work 
+
+billyW -- 01/12/2017 20:30
+- modified design doc, again
+- in class, helped with troubleshooting
+- created a workflow document
