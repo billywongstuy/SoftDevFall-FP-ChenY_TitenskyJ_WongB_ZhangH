@@ -13,7 +13,7 @@ jessicaT -- 01/10/2017 00:47
 - created database and tables
 - started app.py
 
-henryZ — 01/10/2017 1:56
+henryZ — 01/10/2017 01:56
 - wrote addUser and login in utils
 
 yukiC -- 01/10/2017 14:04
@@ -41,6 +41,11 @@ yukiC -- 01/11/2017 13:05
 - add select list in register page for prefered and native languages
 - starting on home page
 
+henryZ —- 01/12/2017 01:30
+- fixed login issues
+- fixed secret key issue
+- updated password hashing
+
 jessicaT -- 01/12/2017 02:40
 - fixed route for register and added key for session
 - made logout and navbar buttons work 
@@ -49,3 +54,6 @@ billyW -- 01/12/2017 20:30
 - modified design doc, again
 - in class, helped with troubleshooting
 - created a workflow document
+
+henryZ —- 01/13/2017 12:46
+- finished addPost function in utils
