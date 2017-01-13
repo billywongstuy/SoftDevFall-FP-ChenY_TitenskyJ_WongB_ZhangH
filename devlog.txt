@@ -57,3 +57,11 @@ billyW -- 01/12/2017 20:30
 
 henryZ —- 01/13/2017 12:46
 - finished addPost function in utils
+
+yukiC -- 01/12/2017 13:07
+- Finsih basic home.html
+- changing styling
+
+yukiC -- 01/13/2017 13:04
+- editing writePost.html 
+- working on viewPost.html
