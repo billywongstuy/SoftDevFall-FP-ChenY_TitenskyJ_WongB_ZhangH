@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 import sqlite3, hashlib, os, utils
-from utils import auth
+from utils import auth, posts
 
 app = Flask(__name__)
 app.secret_key=os.urandom(32)
@@ -57,6 +57,16 @@ def post():
 @app.route("/account")
 def account():
     return render_template("test.html")
+
+@app.route("/createPost")
+def createPost():
+    return render_template("writePost.html")
+
+@app.route("/writePost",methods=['POST'])
+def writePost():
+    posts.addPost(session['username'],request.form['title'],"stuff",request.form['postLang'])
+    #post.addPost (user,title, text, lang)
+    return redirect("/")
 
 if __name__ == "__main__":
     app.debug = True
