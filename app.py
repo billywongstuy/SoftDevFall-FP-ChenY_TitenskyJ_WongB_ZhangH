@@ -64,8 +64,7 @@ def createPost():
 
 @app.route("/writePost",methods=['POST'])
 def writePost():
-    posts.addPost(session['username'],request.form['title'],"stuff",request.form['postLang'])
-    #post.addPost (user,title, text, lang)
+    posts.addPost(session['username'],request.form['title'],request.form['words'],request.form['postLang'])
     return redirect("/")
 
 if __name__ == "__main__":

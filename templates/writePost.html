@@ -14,7 +14,7 @@
 	<h3>Write A Post</h3>
       </div>
       <div class="panel-body">
-	<form method="POST" action="/writePost">
+	<form method="POST" action="/writePost" id="x">
 	  Choose your post's language:
 	  <select name="postLang">
 	    <option>English</option>
@@ -28,7 +28,7 @@
 	  Title:<input class="form-group" type="text" name="title" required>
 	  <br><br>
 	  <div class="form-group">
-	    <textarea></textarea>
+	    <textarea form="x" name="words"></textarea>
 	  </div>
 	  <input class="btn btn-primary" type="submit" value="Post">
 	</form>

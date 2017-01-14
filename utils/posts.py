@@ -2,7 +2,7 @@ import csv
 import sqlite3
 
 def addPost(user, title, content, language):
-	db=sqlite3.connect('../data/info.db')
+	db=sqlite3.connect('data/info.db')
 	c=db.cursor()
 	q="SELECT MAX(postID) FROM posts"
 	c.execute(q)
@@ -16,5 +16,5 @@ def addPost(user, title, content, language):
 	db.commit()
 	db.close()
 	
-addPost('bruh', 'title', 'content')
+#addPost('bruh', 'title', 'content')
 
