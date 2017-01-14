@@ -65,3 +65,6 @@ yukiC -- 01/12/2017 13:07
 yukiC -- 01/13/2017 13:04
 - editing writePost.html 
 - working on viewPost.html
+
+jessicaT -- 01/14/2017 05:20
+- did flask stuff for writePost
