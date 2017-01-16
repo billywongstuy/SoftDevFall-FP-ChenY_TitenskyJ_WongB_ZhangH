@@ -68,3 +68,6 @@ yukiC -- 01/13/2017 13:04
 
 jessicaT -- 01/14/2017 05:20
 - did flask stuff for writePost
+
+billyW -- 01/16/2017 18:35
+- fixed post id problem
