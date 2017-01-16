@@ -6,6 +6,11 @@ Completed:
 -register.html
 -writePost.html (partially complete)
   
+1. writePost.html (partially complete) & posts.py and "/writePost" route
+
+
+
+
 To Do (in order):
 
 * This also includes the respective flask app routes
@@ -13,10 +18,16 @@ To Do (in order):
 Steps and Links:
 
 0. Make the second prefered language optional
-1. writePost.html (partially complete) & editPost.py and "/writePost" route
-2. topic.py & home.html and "/" route
-3. topic.py & viewPost.html and "/viewPost" route
-4. auth.py and account.html and "/account" route
+
+2. topic.py & home.html and "/" route     (Showing posts on the home page)
+
+3. topic.py & viewPost.html & posts.py    and "/viewPost" route     (Viewing a post and ability to comment/edit)
+
+4. auth.py and account.html and "/account" route          (Showing and ability to change user settings)
+
 5. virtual keyboard (finish writePost)
+
+
+
 
 6. Make the front page when logged in better looking  
