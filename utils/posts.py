@@ -21,5 +21,18 @@ def addPost(user, title, content, language):
 	c.execute(q)
 	db.commit()
 	db.close()
-	
-#addPost('bruh', 'title', 'content','Latin')
+
+def viewPost(postID):
+	db=sqlite3.connect('data/info.db')
+	c=db.cursor()
+	q="SELECT * from posts where postID="+str(postID)+""
+	c.execute(q)
+	postTuple=c.fetchall()[0]
+	post=[]
+	for x in range(len(postTuple)):
+		post.append(str(postTuple[x]))
+	c.execute(q)
+	db.commit()
+	db.close()
+	return post
+
