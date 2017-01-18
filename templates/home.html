@@ -16,7 +16,23 @@
     </div>
     <div class="col-xs-8 rightPanel">
       <h3>Posts</h3>
-      {{posts}}
+      <div class="panel-group">
+	{% for post in posts %}
+	<div class="panel panel-primary">
+	  <div class="panel-heading">
+	    <form id={{post[1]}} action="/viewPost">
+	      <input type="hidden" value={{post[1]}}>
+	      <h3>{{post[2]}}</h3>
+	    </form>
+	    Posted by: <b>{{post[0]}}</b> in <i>{{post[4]}}</i>
+	  </div>
+	  <div class="panel-body">
+	    {{post[3]}}
+	  </div>
+	</div>
+	<br><br>
+	{% endfor %}
+      </div>
     </div>
   </div>
 </div>
