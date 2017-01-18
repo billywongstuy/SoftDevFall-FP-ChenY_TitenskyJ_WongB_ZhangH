@@ -8,6 +8,19 @@
 
 {% block body %}
 <div class="container">
+
+  {% if not message=="" %}
+  {% if message=="account successfully created" %}
+  <div class="alert alert-success" role="alert">{{ message }}</div>
+  {% endif %}
+  {% if message=="logged out" %}
+  <div class="alert alert-info" role="alert">{{ message }}</div>
+  {% endif %}
+  {% if (not message=="account successfully created") and (not message=="logged out") %}
+  <div class="alert alert-danger" role="alert">{{ message }}</div>
+  {% endif %}
+  {% endif %}
+
   <h1>Login</h1><br><br>
   <form method="POST" action="/login">
     <div class="row">
@@ -22,6 +35,6 @@
     </div><br><br>
     <input class="btn btn-primary" type="submit" value="Login">
   </form>
-{{ message }}
+
 </div>
 {% endblock %}
