@@ -72,5 +72,9 @@ jessicaT -- 01/14/2017 05:20
 billyW -- 01/16/2017 18:35
 - fixed post id problem
 
+henryZ — 01/16/2017 02:00
+- wrote displayPost function in /utils/topic
+
 jessicaT -- 01/17/2017 8:25
 - made messages on login
+

@@ -14,7 +14,8 @@ def displayPosts():
 		for y in x:
 			temp.append(str(y))
 		posts.append(temp)
-
+	db.commit()
+	db.close()
 	return posts
 	db.commit()
 	db.close()
@@ -32,10 +33,9 @@ def selectPosts(language):
 		for y in x:
 			temp.append(str(y))
 		posts.append(temp)
-
-	return posts
 	db.commit()
 	db.close()
+	return posts
 	
 
 
