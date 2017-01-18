@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-<title>View Post</title>
+
 
 {% block navbar %}
 <li><a href="createPost">Create Post</a></li>
@@ -13,11 +13,42 @@
   <div class="panel-group">
     <div class="panel panel-primary">
       <div class="panel-heading">
-	{{username}}
+	<h3>{{post[2]}}</h3><br>
+	Posted by: {{post[0]}} in {{post[4]}}
       </div>
       <div class="panel-body">
-	{{post}}
+	{{post[3]}}
       </div>
+    </div>
+  </div>
+      <hr>
+      <ul class="nav nav-tabs">
+	<li class="active"><a data-toggle="tab" href="#comment">Comments</a></li>
+	<li><a data-toggle="tab" href="#edit">Edits</a></li>
+      </ul>
+      <div class="tab-content">
+	<div id="comment" class="tab-pane fade in active">
+	  <div class="panel-group">
+	  {% for comment in comments %}
+	    <div class="panel panel-default">
+	      <div class="panel-heading">{{comment[0]}}</div>
+	      <div class="panel-body">{{comment[1]}}</div>
+	    </div>
+	    {% endfor %}
+	  </div>
+	</div>
+	<div id="edit" class="tab-pane fade">
+	  <div class="panel-group">
+	    {% for edit in edits %}
+	    <div class="panel panel-default">
+	      <div class="panel-heading">{{edit[0]}}</div>
+	      <div class="panel-body">{{edit[1]}}</div>
+	    </div>
+	    {% endfor %}
+	  </div>
+	</div>
+      </div>
+      <!--
       Comment or Edit:
       <select name="type">
 	<option>Comment</option>
@@ -33,7 +64,6 @@
 	<option>Japanese</option>
 	<option>French</option>
       </select>
-    </div>
-  </div>
+      -->
 </div>
 {% endblock %}
