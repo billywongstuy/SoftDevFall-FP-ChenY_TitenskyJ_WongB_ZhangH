@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 import sqlite3, hashlib, os, utils
-from utils import auth, posts
+from utils import auth, posts, topic
 
 app = Flask(__name__)
 app.secret_key=os.urandom(32)
@@ -8,7 +8,7 @@ app.secret_key=os.urandom(32)
 @app.route("/")
 def home():
     if 'username' in session:
-        return render_template("home.html")
+        return render_template("home.html",posts=topic.displayPosts())
     return render_template("login.html",message="")
 
 
