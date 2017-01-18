@@ -47,26 +47,36 @@ def createAccount():
 
 @app.route("/logout")
 def logout():
+    if not 'username' in session:
+        return redirect("/")
     session.pop('username')
     return render_template("login.html",message="logged out")
 
 @app.route("/post")
 def post():
+    if not 'username' in session:
+        return redirect("/")
     return render_template("test.html")
 
 @app.route("/account")
 def account():
+    if not 'username' in session:
+        return redirect("/")
     return render_template("test.html")
 
 @app.route("/createPost")
 def createPost():
+    if not 'username' in session:
+        return redirect("/")
     return render_template("writePost.html")
 
 @app.route("/writePost",methods=['POST'])
 def writePost():
+    if not 'username' in session:
+        return redirect("/")
     posts.addPost(session['username'],request.form['title'],request.form['words'],request.form['postLang'])
     return redirect("/")
 
 if __name__ == "__main__":
     app.debug = True
-    app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))
+    app.run()#host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))
