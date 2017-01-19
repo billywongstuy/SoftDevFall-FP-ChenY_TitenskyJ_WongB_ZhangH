@@ -8,7 +8,9 @@ app.secret_key=os.urandom(32)
 @app.route("/")
 def home():
     if 'username' in session:
-        return render_template("home.html",posts=topic.displayPosts())
+        posts=topic.displayPosts()
+        posts.reverse()
+        return render_template("home.html",posts=posts)
     return render_template("login.html",message="")
 
 
