@@ -52,11 +52,13 @@ def logout():
     session.pop('username')
     return render_template("login.html",message="logged out")
 
-@app.route("/post")
-def post():
+@app.route("/viewPost", methods=['POST'])
+def viewPost():
     if not 'username' in session:
         return redirect("/")
-    return render_template("test.html")
+    print request.form['c']
+    post=[request.form['e'],request.form['a'],request.form['b'],request.form['c'],request.form['d']]
+    return render_template("viewPost.html",post=post,comments=[],edits=[])
 
 @app.route("/account")
 def account():
@@ -79,4 +81,4 @@ def writePost():
 
 if __name__ == "__main__":
     app.debug = True
-    app.run()#host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))
+    app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))

@@ -20,8 +20,12 @@
 	{% for post in posts %}
 	<div class="panel panel-primary">
 	  <div class="panel-heading">
-	    <form id={{post[1]}} action="/viewPost">
-	      <input type="hidden" value={{post[1]}}>
+	    <form id={{post[1]}} action="/viewPost" method="POST">
+	      <input type="hidden" value="{{post[1]}}" name="a">
+	      <input type="hidden" value="{{post[2]}}" name="b">
+	      <input type="hidden" value="{{post[3]}}" name="c">
+	      <input type="hidden" value="{{post[4]}}" name="d"> 
+	      <input type="hidden" value="{{post[0]}}" name="e"> 
 	      <button class="btn btn-link" role="link" type="submit">{{post[2]}}</button>
 	    </form>
 	    Posted by: <b>{{post[0]}}</b> in <i>{{post[4]}}</i>
@@ -31,6 +35,8 @@
 	  </div>
 	</div>
 	<br><br>
+
+
 	{% endfor %}
       </div>
     </div>
