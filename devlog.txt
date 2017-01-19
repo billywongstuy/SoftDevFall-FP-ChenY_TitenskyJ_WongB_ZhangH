@@ -83,3 +83,6 @@ billyW -- 01/18/2017 18:05
 
 jessicaT -- 01/18/2017 23:10
 - made viewing posts work
+
+billyW -- 01/19/2017 18:13
+- facilated work in class and gave instructions for next steps
