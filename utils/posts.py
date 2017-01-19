@@ -12,10 +12,7 @@ def addPost(user, title, content, language):
                 print "Nothing"
         else:
                 lastPostID += 1
-	print lastPostID
-
-        
-        
+	print lastPostID      
 	q="INSERT INTO posts VALUES (\'"+user+"\', "+ str(lastPostID) + ", \'" + title+ "\', \'" + content + "\', \'"+language+"\')"
 	print q;
 	c.execute(q)
