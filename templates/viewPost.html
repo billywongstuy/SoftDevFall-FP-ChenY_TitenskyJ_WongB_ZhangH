@@ -28,6 +28,29 @@
       </ul>
       <div class="tab-content">
 	<div id="comment" class="tab-pane fade in active">
+	  <div class="panel panel-default">
+	    <div class="panel-heading">
+	      Write Comment
+	      <p align="right">
+		Choose your language:
+		<select name="commentLang">
+		  <option>English</option>
+		  <option>Italian</option>
+		  <option>Russian</option>
+		  <option>Spanish</option>
+		  <option>Japanese</option>
+		  <option>French</option>
+		</select>
+	      </p>
+	    </div>
+	    <div class="panel-body">
+	      <form id="writeComment" action="/writeComment">
+		<textarea id="commentText"></textarea>
+		<input class="btn btn-primary" type="submit" value="Comment">
+	      </form>
+	    </div>
+	  </div>
+	  <h3>Other Comments</h3>
 	  <div class="panel-group">
 	  {% for comment in comments %}
 	    <div class="panel panel-default">
@@ -38,6 +61,16 @@
 	  </div>
 	</div>
 	<div id="edit" class="tab-pane fade">
+	  <div class="panel panel-default">
+	    <div class="panel-heading">Make Edit</div>
+	    <div class="panel-body">
+	      <form id="makeEdit" action="/makeEdit">
+		<textarea>{{post[3]}}</textarea>
+		<input class="btn btn-primary" type="submit" value="Register">
+	      </form>
+	    </div>
+	  </div>
+	  <h3>Other Edits</h3>
 	  <div class="panel-group">
 	    {% for edit in edits %}
 	    <div class="panel panel-default">

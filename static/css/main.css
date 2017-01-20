@@ -20,3 +20,20 @@ textarea {
 .btn-link:hover{
     color:black;
 }
+
+
+.writeComment{
+    position:relative;
+}
+
+.write{
+    height:300px;
+    background:grey;
+}
+
+@media{
+    .write{
+	position:fixed;
+    }
+}
+
