@@ -3,7 +3,7 @@
 ### Setup
 1. Open a terminal and change into this directory
 2. Activate your virtual environment 
-3. Run the Flask server by typing ```python app,py``` into your terminal
+3. Run the Flask server by typing ```python app.py``` into your terminal
 4. Open http://127.0.0.1:5000/ on your browser. 
 
 ### About
