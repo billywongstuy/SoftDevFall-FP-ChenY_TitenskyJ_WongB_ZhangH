@@ -84,8 +84,16 @@ billyW -- 01/18/2017 18:05
 jessicaT -- 01/18/2017 23:10
 - made viewing posts work
 
+yukiC -- 01/18/2017 18:48
+- Display posts in homepage
+- Make each posts in homepage clickable
+- Finished basic structure for viewPost.html, displays details of the post, with tabs for comments and edits
+
 billyW -- 01/19/2017 18:13
 - facilated work in class and gave instructions for next steps
 
 billyW -- 01/19/2017 21:57
 - started work on the readme
+
+yukiC -- 01/19/2017 21:10
+- Add textarea for user to write comments & make edits
