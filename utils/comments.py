@@ -2,7 +2,7 @@ import csv
 import sqlite3
 
 def addComment(user, postID, content):
-	db=sqlite3.connect('../data/info.db')
+	db=sqlite3.connect('data/info.db')
 	c=db.cursor()
 	q="SELECT MAX(commentID) FROM comments"
 	c.execute(q)
@@ -19,4 +19,23 @@ def addComment(user, postID, content):
 	db.commit()
 	db.close()
 
-addComment('test', '1', 'Test comment')
+
+#returns all data and posts belonging to a postID
+def getComments(postID):
+	db=sqlite3.connect('../data/info.db')
+	c=db.cursor()
+	q="SELECT * from comments where postID=\'"+str(postID)+"\'"
+	c.execute(q)
+	var=c.fetchall()
+	comments=[]
+	for x in var:
+		temp=[]
+		for y in x:
+			temp.append(str(y))
+		comments.append(temp)
+	db.commit()
+	db.close()
+	return comments
+
+
+print getComments(1)

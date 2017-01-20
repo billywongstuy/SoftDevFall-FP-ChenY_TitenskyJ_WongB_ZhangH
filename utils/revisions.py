@@ -16,3 +16,19 @@ def addRevision(user, postID, content):
 	c.execute(q)
 	db.commit()
 	db.close()
+
+def getRevisions(postID):
+	db=sqlite3.connect('../data/info.db')
+	c=db.cursor()
+	q="SELECT * from revisions where postID=\'"+str(postID)+"\'"
+	c.execute(q)
+	var=c.fetchall()
+	revisions=[]
+	for x in var:
+		temp=[]
+		for y in x:
+			temp.append(str(y))
+		comments.append(temp)
+	db.commit()
+	db.close()
+	return revisions

@@ -20,6 +20,11 @@ def displayPosts():
 	db.commit()
 	db.close()
 
+def languages(username):
+	db=sqlite3.connect('data/info.db')
+	c=db.cursor()
+	q="SELECT prefLang FROM users WHERE username=\'"+username+"\'"
+
 def selectPosts(language):
 	db=sqlite3.connect('data/info.db')
 	c=db.cursor()
