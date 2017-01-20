@@ -9,7 +9,7 @@ def addComment(user, postID, content):
 	lastCommentID=c.fetchall()[0][0]
 	if lastCommentID is None:
 		lastCommentID=0
-                print "Nothing"
+                print "Nothing"g
         else:
         	lastCommentID += 1
 	print lastCommentID
@@ -22,7 +22,7 @@ def addComment(user, postID, content):
 
 #returns all data and posts belonging to a postID
 def getComments(postID):
-	db=sqlite3.connect('../data/info.db')
+	db=sqlite3.connect('data/info.db')
 	c=db.cursor()
 	q="SELECT * from comments where postID=\'"+str(postID)+"\'"
 	c.execute(q)

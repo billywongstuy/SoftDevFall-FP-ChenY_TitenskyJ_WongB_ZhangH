@@ -58,7 +58,21 @@ def userLogin(user, pw):
 def special(user):
     return any((ord(char)<48 or (ord(char)>57 and ord(char)<65) or (ord(char)>90 and ord(char)<97) or ord(char)>123) for char in user)
 
-
+def getPostsByUser(username):
+    db=sqlite3.connect('data/info.db')
+    c=db.cursor()
+    q="SELECT * from posts where username=\'"+str(username)+"\'"
+    c.execute(q)
+    var=c.fetchall()
+    comments=[]
+    for x in var:
+        temp=[]
+        for y in x:
+            temp.append(str(y))
+        comments.append(temp)
+    db.commit()
+    db.close()
+    return comments
 
 #testing cases
 #print addUser("test","funTimesAhead","funTimesAhead","Spanish,Chinese","English")
