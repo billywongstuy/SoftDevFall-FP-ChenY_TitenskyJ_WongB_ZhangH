@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 import sqlite3, hashlib, os, utils
-from utils import auth, posts, topic
+from utils import auth, posts, topic, comments
 
 app = Flask(__name__)
 app.secret_key=os.urandom(32)
@@ -62,6 +62,13 @@ def viewPost():
     #post=[request.form['e'],request.form['a'],request.form['b'],request.form['c'],request.form['d']]
     post = posts.viewPost(request.form['a'])
     return render_template("viewPost.html",post=post,comments=[],edits=[])
+
+@app.route("/writeComment", methods=['POST'])
+def writeComment():
+    if not 'username' in session:
+        return redirect("/")
+    comments.addComment(session['username'],request.form['usrid'],request.form['com'])
+    return
 
 @app.route("/account")
 def account():
