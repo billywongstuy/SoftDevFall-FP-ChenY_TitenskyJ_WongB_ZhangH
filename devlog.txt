@@ -89,6 +89,8 @@ yukiC -- 01/18/2017 18:48
 - Make each posts in homepage clickable
 - Finished basic structure for viewPost.html, displays details of the post, with tabs for comments and edits
 
+jessicaT -- 01/19.2017 14:00
+- reversed posts
 billyW -- 01/19/2017 18:13
 - facilated work in class and gave instructions for next steps
 
