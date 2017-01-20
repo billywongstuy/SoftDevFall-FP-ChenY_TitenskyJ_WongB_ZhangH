@@ -68,7 +68,7 @@ def writeComment():
     if not 'username' in session:
         return redirect("/")
     comments.addComment(session['username'],request.form['usrid'],request.form['com'])
-    return
+    return redirect("/")
 
 @app.route("/account")
 def account():
