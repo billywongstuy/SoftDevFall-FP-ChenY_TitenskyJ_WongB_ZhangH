@@ -8,7 +8,9 @@ app.secret_key=os.urandom(32)
 @app.route("/")
 def home():
     if 'username' in session:
-        return render_template("home.html",posts=topic.displayPosts())
+        posts=topic.displayPosts()
+        posts.reverse()
+        return render_template("home.html",posts=posts)
     return render_template("login.html",message="")
 
 
@@ -56,8 +58,9 @@ def logout():
 def viewPost():
     if not 'username' in session:
         return redirect("/")
-    print request.form['c']
-    post=[request.form['e'],request.form['a'],request.form['b'],request.form['c'],request.form['d']]
+    #print request.form['c']
+    #post=[request.form['e'],request.form['a'],request.form['b'],request.form['c'],request.form['d']]
+    post = posts.viewPost(request.form['a'])
     return render_template("viewPost.html",post=post,comments=[],edits=[])
 
 @app.route("/account")
