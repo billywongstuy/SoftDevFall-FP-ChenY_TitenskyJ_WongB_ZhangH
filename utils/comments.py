@@ -9,7 +9,7 @@ def addComment(user, postID, content):
 	lastCommentID=c.fetchall()[0][0]
 	if lastCommentID is None:
 		lastCommentID=0
-                print "Nothing"g
+                print "Nothing"
         else:
         	lastCommentID += 1
 	print lastCommentID
