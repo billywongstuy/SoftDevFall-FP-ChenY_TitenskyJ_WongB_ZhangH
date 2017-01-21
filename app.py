@@ -60,18 +60,21 @@ def viewPost():
         return redirect("/")
     #print request.form['c']
     #post=[request.form['e'],request.form['a'],request.form['b'],request.form['c'],request.form['d']]
-    post = posts.viewPost(request.form['a'])
+    p = posts.viewPost(request.form['a'])
     c=comments.getComments(request.form['a'])
     print "CCCCCCC"
     print c
-    return render_template("viewPost.html",post=post,comments=c,edits=[])
+    return render_template("viewPost.html",post=p,comments=c,edits=[])
 
 @app.route("/writeComment", methods=['POST'])
 def writeComment():
     if not 'username' in session:
         return redirect("/")
-    comments.addComment(session['username'],request.form['usrid'],request.form['com'])
-    return redirect("/")
+    comments.addComment(session['username'],request.form['pid'],request.form['com'])
+    p=posts.viewPost(request.form['pid'])
+    c=comments.getComments(request.form['pid'])
+    return render_template("viewPost.html",post=p,comments=c,edits=[])
+    #return redirect("/")
     
 @app.route("/account")
 def account():
