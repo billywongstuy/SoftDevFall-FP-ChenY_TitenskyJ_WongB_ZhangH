@@ -94,7 +94,10 @@ def makeEdit():
 def account():
     if not 'username' in session:
         return redirect("/")
-    return render_template("test.html")
+    #Example of array
+    posts=[["username",0,"This is Title","Post Content blah","language"],["username",0,"This is Title","Post Content blah","language"]]
+    comments=[["Post title","comment content",0],["Post title","comment content",1],["Post title","comment content",2]]
+    return render_template("account.html",posts=posts,comments=comments)
 
 @app.route("/createPost")
 def createPost():
@@ -111,4 +114,5 @@ def writePost():
 
 if __name__ == "__main__":
     app.debug = True
-    app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))
+#    app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))
+    app.run()

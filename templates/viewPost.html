@@ -68,7 +68,7 @@
 	      <form id="makeEdit" action="/makeEdit" method="POST">
 		<textarea name="rev">{{post[3]}}</textarea>
 		<input type="hidden" value="{{ post[1] }}" name="pid">
-		<input class="btn btn-primary" type="submit" value="Register">
+		<input class="btn btn-primary" type="submit" value="Submit">
 	      </form>
 	    </div>
 	  </div>
@@ -83,22 +83,5 @@
 	  </div>
 	</div>
       </div>
-      <!--
-      Comment or Edit:
-      <select name="type">
-	<option>Comment</option>
-	<option>Edit</option>
-      </select>
-      <br>
-      Choose your language:
-      <select name="commentLang">
-	<option>English</option>
-	<option>Italian</option>
-	<option>Russian</option>
-	<option>Spanish</option>
-	<option>Japanese</option>
-	<option>French</option>
-      </select>
-      -->
 </div>
 {% endblock %}

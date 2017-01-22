@@ -12,10 +12,38 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-4 leftPanel">
-      <h3>Posts Language</h3>
+      <h3>
+	{% block leftContainer %}
+	Posts Language
+	{% endblock %}
+      </h3>
+      {% block languages %}
+      <form>
+	<div class="radio">
+	  <label><input type="radio" value="english" name="lang">English</label>
+	</div>
+	<div class="radio">
+	  <label><input type="radio" value="Italian" name="lang">Italian</label>
+	</div>
+	<div class="radio">
+	  <label><input type="radio" value="French" name="lang">French</label>
+	</div>
+	<div class="radio">
+	  <label><input type="radio" value="Russian" name="lang">Russian</label>
+	</div>
+	<div class="radio">
+	  <label><input type="radio" value="Korean" name="lang">Korean</label>
+	</div>
+      </form>
+	{% endblock %}
     </div>
     <div class="col-xs-8 rightPanel">
-      <h3>Posts</h3>
+      <h3>
+	{% block rightContainer %}
+	Posts
+	{% endblock %}
+      </h3>
+      {% block panelContent %}
       <div class="panel-group">
 	{% for post in posts %}
 	<div class="panel panel-primary">
@@ -31,11 +59,10 @@
 	  </div>
 	</div>
 	<br><br>
-
-
 	{% endfor %}
       </div>
-    </div>
+      {% endblock %}
+      </div>
   </div>
 </div>
 {% endblock %}
