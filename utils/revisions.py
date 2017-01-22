@@ -28,7 +28,8 @@ def getRevisions(postID):
 		temp=[]
 		for y in x:
 			temp.append(str(y))
-		comments.append(temp)
+		#comments.append(temp)
+                revisions.append(temp)
 	db.commit()
 	db.close()
 	return revisions

@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 import sqlite3, hashlib, os, utils
-from utils import auth, posts, topic, comments
+from utils import auth, posts, topic, comments, revisions
 
 app = Flask(__name__)
 app.secret_key=os.urandom(32)
@@ -62,9 +62,10 @@ def viewPost():
     #post=[request.form['e'],request.form['a'],request.form['b'],request.form['c'],request.form['d']]
     p = posts.viewPost(request.form['a'])
     c=comments.getComments(request.form['a'])
+    e=revisions.getRevisions(request.form['a'])
     print "CCCCCCC"
     print c
-    return render_template("viewPost.html",post=p,comments=c,edits=[])
+    return render_template("viewPost.html",post=p,comments=c,edits=e)
 
 @app.route("/writeComment", methods=['POST'])
 def writeComment():
@@ -73,9 +74,22 @@ def writeComment():
     comments.addComment(session['username'],request.form['pid'],request.form['com'])
     p=posts.viewPost(request.form['pid'])
     c=comments.getComments(request.form['pid'])
-    return render_template("viewPost.html",post=p,comments=c,edits=[])
-    #return redirect("/")
-    
+    e=revisions.getRevisions(request.form['pid'])
+    return render_template("viewPost.html",post=p,comments=c,edits=e)
+
+@app.route("/makeEdit",methods=['POST'])
+def makeEdit():
+    if not 'username' in session:
+        return redirect("/")
+    revisions.addRevision(session['username'],request.form['pid'],request.form['rev'])
+    p=posts.viewPost(request.form['pid'])
+    c=comments.getComments(request.form['pid'])
+    e=revisions.getRevisions(request.form['pid'])
+    print "EEEE"
+    print e
+    return render_template("viewPost.html",post=p,comments=c,edits=e)    
+
+
 @app.route("/account")
 def account():
     if not 'username' in session:
@@ -97,4 +111,4 @@ def writePost():
 
 if __name__ == "__main__":
     app.debug = True
-    app.run()#host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))
+    app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))
