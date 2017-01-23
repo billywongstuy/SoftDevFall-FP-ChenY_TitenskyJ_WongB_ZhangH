@@ -18,7 +18,7 @@
 	{% endblock %}
       </h3>
       {% block languages %}
-      <form>
+      <form action="/">
 	<div class="radio">
 	  <label><input type="radio" value="english" name="lang">English</label>
 	</div>
@@ -34,6 +34,7 @@
 	<div class="radio">
 	  <label><input type="radio" value="Korean" name="lang">Korean</label>
 	</div>
+	<input class="btn btn-primary" type="submit" value="Refresh">
       </form>
 	{% endblock %}
     </div>
