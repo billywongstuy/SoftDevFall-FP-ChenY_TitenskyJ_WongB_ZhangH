@@ -16,7 +16,7 @@
       <div class="panel-body">
 	<form method="POST" action="/writePost" id="x">
 	  Choose your post's language:
-	  <select name="postLang" onchange="changeKeyboard()">
+	  <select name="postLang" id="postLang" onchange="changeKeyboard()">
 	    <option value="en">English</option>
 	    <option value="it">Italian</option>
 	    <option value="ru">Russian</option>
@@ -37,16 +37,53 @@
   </div>
 </div>
 
-<script>
-  var kbd = new google.elements.keyboard.Keyboard(
-  [google.elements.keyboard.LayoutCode.RUSSIAN]);
 
-  var changeKeyboard = function(){
-  alert("chnage");
-  var lang = document.getElementByName("postLang").value;
-  kbd = new google.elements.keyboard.Keyboard(
-  [google.elements.keyboard.LayoutCode.FRENCH]);
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+
+  google.load("elements", "1", {
+  packages: "keyboard"
+  });
   
+  function onLoad() {
+  var kbd = new google.elements.keyboard.Keyboard(
+  [google.elements.keyboard.LayoutCode.ENGLISH],
+  ['t1']);
+  return kbd;
   }
+  
+  function changeKeyboard() {
+  var lang = document.getElementById("postLang").value;
+
+  var kbd = new google.elements.keyboard.Keyboard();
+  
+  kbd.setLayout(lang);
+  }
+  
+  
+  google.setOnLoadCallback(onLoad);
 </script>
+
 {% endblock %}
+
+
+
+/*
+
+
+/*
+  var kbd = new google.elements.keyboard.Keyboard(
+  [google.elements.keyboard.LayoutCode.FRENCH],
+  ['t1']);
+  */
+
+  var kbd = new google.elements.keyboard.Keyboard(
+  [google.elements.keyboard.LayoutCode.RUSSIAN],
+  ['t1']);
+  }
+  kbd.setLayout(lang);
+  
+
+
+
+*/
