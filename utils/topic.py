@@ -42,7 +42,7 @@ def getLanguages(username):
 def selectPosts(language):
 	db=sqlite3.connect('data/info.db')
 	c=db.cursor()
-	q="SELECT * FROM posts"
+	q="SELECT * FROM posts where language = \"" + language + "\""
 	c.execute(q)
 	var=c.fetchall()
 	print var

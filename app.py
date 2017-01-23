@@ -5,10 +5,13 @@ from utils import auth, posts, topic, comments, revisions
 app = Flask(__name__)
 app.secret_key=os.urandom(32)
 
-@app.route("/")
+@app.route("/", methods=['POST','GET'])
 def home():
     if 'username' in session:
-        posts=topic.displayPosts()
+        if 'lang' in request.form:
+            posts=topic.selectPosts(request.form['lang'])
+        else:
+            posts=topic.displayPosts()
         posts.reverse()
         return render_template("home.html",posts=posts)
     return render_template("login.html",message="")
@@ -95,7 +98,8 @@ def account():
     if not 'username' in session:
         return redirect("/")
     #Example of array
-    posts=[["username",0,"This is Title","Post Content blah","language"],["username",0,"This is Title","Post Content blah","language"]]
+    #posts=[["username",0,"This is Title","Post Content blah","language"],["username",0,"This is Title","Post Content blah","language"]]
+    posts=auth.getPostsByUser(session['username'])
     comments=[["Post title","comment content",0],["Post title","comment content",1],["Post title","comment content",2]]
     return render_template("account.html",posts=posts,comments=comments)
 
