@@ -16,13 +16,13 @@
       <div class="panel-body">
 	<form method="POST" action="/writePost" id="x">
 	  Choose your post's language:
-	  <select name="postLang">
-	    <option>English</option>
-	    <option>Italian</option>
-	    <option>Russian</option>
-	    <option>Spanish</option>
-	    <option>Japanese</option>
-	    <option>French</option>
+	  <select name="postLang" onchange="changeKeyboard()">
+	    <option value="en">English</option>
+	    <option value="it">Italian</option>
+	    <option value="ru">Russian</option>
+	    <option value="es_es">Spanish</option>
+	    <option value="sv">Swedish</option>
+	    <option value="fr">French</option>
 	  </select>
 	  <br><br>
 	  Title:<input class="form-group" type="text" name="title" required>
@@ -36,4 +36,17 @@
     </div>
   </div>
 </div>
+
+<script>
+  var kbd = new google.elements.keyboard.Keyboard(
+  [google.elements.keyboard.LayoutCode.RUSSIAN]);
+
+  var changeKeyboard = function(){
+  alert("chnage");
+  var lang = document.getElementByName("postLang").value;
+  kbd = new google.elements.keyboard.Keyboard(
+  [google.elements.keyboard.LayoutCode.FRENCH]);
+  
+  }
+</script>
 {% endblock %}
