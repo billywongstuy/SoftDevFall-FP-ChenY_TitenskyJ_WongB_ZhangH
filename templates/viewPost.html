@@ -12,7 +12,7 @@
   });
 
   var kbd;
-
+  
   function onLoad(){
   var s = document.getElementById("commentLang").value;
   console.log(s);
@@ -23,6 +23,7 @@
 
 
   google.setOnLoadCallback(onLoad);
+  pos();
 </script>
 {% endblock %}
 
@@ -59,7 +60,7 @@
 	      Write Comment
 	      <p align="right">
 		Choose your language:
-		<select id="commentLang" onclick="changeKeyboard()">
+		<select id="commentLang"  onchange="changeKeyboard()">
 		  {% for item in optList %}
 		  <option value="{{item[0]}}">{{item[1]}}</option>
 		  {% endfor %}
@@ -113,10 +114,18 @@
   function changeKeyboard() {
   var lang = document.getElementById("commentLang").value;
   kbd.setLayout(lang);
+  pos();
   }
 
   function forceKeyboard() {
   kbd.setLayout('{{defaultKeyboard}}');
+  pos();
+  }
+
+  function pos() {
+  document.getElementById("kbd").style.bottom = "20px";
+  document.getElementById("kbd").style.right = "20px";
+  console.log("triggered")
   }
 
 </script>
