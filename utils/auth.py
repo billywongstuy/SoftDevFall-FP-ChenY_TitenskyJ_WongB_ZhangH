@@ -94,6 +94,16 @@ def getContributionsByUser(username):
     db.close()
     return list(set(comments))
 
+def changeLanguages(newLangs, username):
+    db=sqlite3.connect('data/info.db')
+    c=db.cursor()
+    q="UPDATE users SET prefLang=\'"+ str(newLangs[0]+','+newLangs[1]) + "\' where username=\'"+str(username)+"\'"
+    print q
+    c.execute(q)
+    db.commit()
+    db.close()
+
+
 #testing cases
 #print addUser("test","funTimesAhead","funTimesAhead","Spanish,Chinese","English")
 
