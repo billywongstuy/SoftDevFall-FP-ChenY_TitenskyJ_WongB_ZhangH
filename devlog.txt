@@ -112,6 +112,7 @@ yukiC -- 01/23/2017 20:03
 
 billyW -- 01/23/2017 22:07
 - facilitated group work and told members their tasks
+- updated design doc
 
 henryZ -- 01/23/17  <time>
 - 
