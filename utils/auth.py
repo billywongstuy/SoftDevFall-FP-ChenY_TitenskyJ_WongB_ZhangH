@@ -75,7 +75,7 @@ def getPostsByUser(username):
     return comments
 
 def getContributionsByUser(username):
-    db=sqlite3.connect('../data/info.db')
+    db=sqlite3.connect('data/info.db')
     c=db.cursor()
     q="SELECT postID from comments where username=\'"+str(username)+"\'"
     c.execute(q)

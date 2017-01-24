@@ -99,9 +99,21 @@ def account():
         return redirect("/")
     #Example of array
     #posts=[["username",0,"This is Title","Post Content blah","language"],["username",0,"This is Title","Post Content blah","language"]]
-    posts=auth.getPostsByUser(session['username'])
-    comments=[["Post title","comment content",0],["Post title","comment content",1],["Post title","comment content",2]]
-    return render_template("account.html",posts=posts,comments=comments)
+    postss=auth.getPostsByUser(session['username'])
+    c=auth.getContributionsByUser(session['username'])
+    print "COMS"
+    print c
+    comments=[]
+    for k in c:
+        x=posts.viewPost(int(k))
+        y=[]
+        y.append(x[2])
+        y.append(x[3])
+        y.append(x[1])
+        comments.append(y)
+    print comments
+    #comments=[["Post title","comment content",0],["Post title","comment content",1],["Post title","comment content",2]]
+    return render_template("account.html",posts=postss,comments=comments)
 
 @app.route("/createPost")
 def createPost():
@@ -217,5 +229,5 @@ def getKeyboard(lang):
 
 if __name__ == "__main__":
     app.debug = True
-#    app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))
-    app.run()
+    app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))
+#    app.run()
