@@ -115,8 +115,15 @@ jessicaT -- 01/21/2017 02:00
 jessicaT -- 01/21/2017 19:50
 - adding and seeing edits
 
+yukiC -- 01/22/2017 20:31
+- Finished account.html, displaying user's posts&comments&edits
+- Adding radio buttons to homepage
+
 yukiC -- 01/23/2017 20:03
-- worked on virtual keyboard and changing between keyboards depending on chosen language
+- worked on virtual keyboard and changing between keyboards depending on chosen language(comment can choose language, edit can only use the language of the original post)
+- added python function to generate dictionary which contains language names with their corresponding keyboard layout codes
+- generate dropdown list and radio buttons using above mentioned dictionary and for loop
+- bug with opening up dropdown list once clicked on textarea
 
 billyW -- 01/23/2017 22:07
 - facilitated group work and told members their tasks
@@ -125,3 +132,5 @@ billyW -- 01/23/2017 22:07
 henryZ -- 01/23/17  22:07
 - wrote getContributionsByUser
 
+yukiC - 01/24/2017 06:21
+- fixed bug with opening up dropdown list after clicking on textarea(use "onchange" instead of "onclick")
