@@ -92,6 +92,9 @@ yukiC -- 01/18/2017 18:48
 jessicaT -- 01/19/2017 14:00
 - reversed posts order
 
+henryZ -- 01/19/2017  14:03
+- wrote addRevision and revisions.py in utils
+
 billyW -- 01/19/2017 18:13
 - facilated work in class and gave instructions for next steps
 
@@ -100,6 +103,11 @@ billyW -- 01/19/2017 21:57
 
 yukiC -- 01/19/2017 21:10
 - Add textarea for user to write comments & make edits
+
+henryZ -- 01/20/2017  14:05
+- wrote getComments and getRevisions in /utils/revisions.py
+- wrote getPostsByUser in /utils/auth.py
+- fixed getLanguages
 
 jessicaT -- 01/21/2017 02:00
 - made adding comments and seeing comments
@@ -114,6 +122,6 @@ billyW -- 01/23/2017 22:07
 - facilitated group work and told members their tasks
 - updated design doc
 
-henryZ -- 01/23/17  <time>
-- 
+henryZ -- 01/23/17  22:07
+- wrote getContributionsByUser
 
