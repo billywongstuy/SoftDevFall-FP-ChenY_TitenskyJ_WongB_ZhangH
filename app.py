@@ -221,7 +221,8 @@ def languageList():
         pair = [languageKeys[key],key[0]+key[1:].lower()]
         print pair
         optStr.append(pair)
-    return optStr
+    #return optStr
+    return sorted(optStr, key=lambda x: x[1])
 
 def getKeyboard(lang):
     return languageKeys[lang.upper()]
@@ -229,5 +230,5 @@ def getKeyboard(lang):
 
 if __name__ == "__main__":
     app.debug = True
-    app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))
-#    app.run()
+#    app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))
+    app.run()
