@@ -74,6 +74,28 @@ def getPostsByUser(username):
     db.close()
     return comments
 
+def getContributionsByUser(username):
+    db=sqlite3.connect('../data/info.db')
+    c=db.cursor()
+    q="SELECT postID from comments where username=\'"+str(username)+"\'"
+    c.execute(q)
+    var=c.fetchall()
+    comments=[]
+    for x in var:
+        for y in x:
+            comments.append(str(y))
+    q="SELECT postID from comments where username=\'"+str(username)+"\'"
+    c.execute(q)
+    var=c.fetchall()
+    for x in var:
+        for y in x:
+            comments.append(str(y))
+    db.commit()
+    db.close()
+    return list(set(comments))
+
+print getContributionsByUser('test')
+
 #testing cases
 #print addUser("test","funTimesAhead","funTimesAhead","Spanish,Chinese","English")
 
