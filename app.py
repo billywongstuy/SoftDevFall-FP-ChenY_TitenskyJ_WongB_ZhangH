@@ -68,7 +68,7 @@ def viewPost():
     e=revisions.getRevisions(request.form['a'])
     print "CCCCCCC"
     print c
-    return render_template("viewPost.html",post=p,comments=c,edits=e)
+    return render_template("viewPost.html",post=p,comments=c,edits=e,optList=languageList(),defaultKeyboard=getKeyboard(p[4]))
 
 @app.route("/writeComment", methods=['POST'])
 def writeComment():
@@ -209,9 +209,11 @@ def languageList():
         pair = [languageKeys[key],key[0]+key[1:].lower()]
         print pair
         optStr.append(pair)
-        #optStr += "<option value='"+languageKeys[key]+"'>"+key[0]+key[1:].lower()+"</option>"
-    print optStr
     return optStr
+
+def getKeyboard(lang):
+    return languageKeys[lang.upper()]
+
 
 if __name__ == "__main__":
     app.debug = True

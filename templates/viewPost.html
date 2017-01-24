@@ -1,6 +1,32 @@
 {% extends "base.html" %}
 
 
+{% block head %}
+<title>View Post</title>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+
+  google.load("elements", "1", {
+  packages: "keyboard"
+  });
+
+  var kbd;
+
+  function onLoad(){
+  var s = document.getElementById("commentLang").value;
+  console.log(s);
+
+  kbd = new google.elements.keyboard.Keyboard();
+  kbd.setLayout(s);
+  }
+
+
+  google.setOnLoadCallback(onLoad);
+</script>
+{% endblock %}
+
+
 {% block navbar %}
 <li><a href="createPost">Create Post</a></li>
 <li><a href="/account">Account</a></li>
@@ -9,7 +35,6 @@
 
 {% block body %}
 <div class="container">
-<!--<h3>View A Post</h3><br><br>-->
   <div class="panel-group">
     <div class="panel panel-primary">
       <div class="panel-heading">
@@ -23,9 +48,10 @@
   </div>
       <hr>
       <ul class="nav nav-tabs">
-	<li class="active"><a data-toggle="tab" href="#comment">Comments</a></li>
-	<li><a data-toggle="tab" href="#edit">Edits</a></li>
+	<li class="active"><a data-toggle="tab" href="#comment" onclick="changeKeyboard()">Comments</a></li>
+	<li><a data-toggle="tab" href="#edit" onclick="forceKeyboard()">Edits</a></li>
       </ul>
+      
       <div class="tab-content">
 	<div id="comment" class="tab-pane fade in active">
 	  <div class="panel panel-default">
@@ -33,13 +59,10 @@
 	      Write Comment
 	      <p align="right">
 		Choose your language:
-		<select name="commentLang">
-		  <option>English</option>
-		  <option>Italian</option>
-		  <option>Russian</option>
-		  <option>Spanish</option>
-		  <option>Japanese</option>
-		  <option>French</option>
+		<select id="commentLang" onclick="changeKeyboard()">
+		  {% for item in optList %}
+		  <option value="{{item[0]}}">{{item[1]}}</option>
+		  {% endfor %}
 		</select>
 	      </p>
 	    </div>
@@ -61,6 +84,7 @@
 	    {% endfor %}
 	  </div>
 	</div>
+
 	<div id="edit" class="tab-pane fade">
 	  <div class="panel panel-default">
 	    <div class="panel-heading">Make Edit</div>
@@ -84,4 +108,17 @@
 	</div>
       </div>
 </div>
+
+<script type="text/javascript">
+  function changeKeyboard() {
+  var lang = document.getElementById("commentLang").value;
+  kbd.setLayout(lang);
+  }
+
+  function forceKeyboard() {
+  kbd.setLayout('{{defaultKeyboard}}');
+  }
+
+</script>
+
 {% endblock %}
