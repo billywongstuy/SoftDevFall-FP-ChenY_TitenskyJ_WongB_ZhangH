@@ -119,6 +119,10 @@ yukiC -- 01/22/2017 20:31
 - Finished account.html, displaying user's posts&comments&edits
 - Adding radio buttons to homepage
 
+jessicaT -- 01/23/2017 14:00
+- filtered posts by language
+- showed users own posts
+
 yukiC -- 01/23/2017 20:03
 - worked on virtual keyboard and changing between keyboards depending on chosen language(comment can choose language, edit can only use the language of the original post)
 - added python function to generate dictionary which contains language names with their corresponding keyboard layout codes
