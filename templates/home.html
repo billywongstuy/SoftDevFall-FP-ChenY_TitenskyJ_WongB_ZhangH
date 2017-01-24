@@ -19,10 +19,12 @@
       </h3>
       {% block languages %}
       <form action="/" method="POST">
+	{% for item in optList %}
 	<div class="radio">
-	  <label><input type="radio" value="English" name="lang">English</label>
+	  <label><input type="radio" value="{{item[1]}}" name="lang">{{item[1]}}</label>
 	</div>
-	<div class="radio">
+	{% endfor %}
+	<!--<div class="radio">
 	  <label><input type="radio" value="Italian" name="lang">Italian</label>
 	</div>
 	<div class="radio">
@@ -33,7 +35,7 @@
 	</div>
 	<div class="radio">
 	  <label><input type="radio" value="Korean" name="lang">Korean</label>
-	</div>
+	</div>-->
 	<input class="btn btn-primary" type="submit" value="Refresh">
       </form>
 	{% endblock %}

@@ -1,5 +1,29 @@
 {% extends "base.html" %}
+
+{% block head %}
 <title>Write Post</title>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+
+  google.load("elements", "1", {
+  packages: "keyboard"
+  });
+
+  var kbd;
+
+  function onLoad(){
+  var s = document.getElementById("postLang").value;
+  console.log(s);
+
+  kbd = new google.elements.keyboard.Keyboard();
+  kbd.setLayout(s);
+  }
+
+
+  google.setOnLoadCallback(onLoad);
+</script>
+{% endblock %}
 
 {% block navbar %}
 <li><a href="/account">Account</a></li>
@@ -17,12 +41,9 @@
 	<form method="POST" action="/writePost" id="x">
 	  Choose your post's language:
 	  <select name="postLang" id="postLang" onchange="changeKeyboard()">
-	    <option value="en">English</option>
-	    <option value="it">Italian</option>
-	    <option value="ru">Russian</option>
-	    <option value="es_es">Spanish</option>
-	    <option value="sv">Swedish</option>
-	    <option value="fr">French</option>
+	    {% for item in optList %}
+	    <option value="{{item[0]}}">{{item[1]}}</option>
+	    {% endfor %}
 	  </select>
 	  <br><br>
 	  Title:<input class="form-group" type="text" name="title" required>
@@ -38,30 +59,13 @@
 </div>
 
 
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!--<script type="text/javascript" src="https://www.google.com/jsapi"></script>-->
 <script type="text/javascript">
-
-  google.load("elements", "1", {
-  packages: "keyboard"
-  });
-  
-  function onLoad() {
-  var kbd = new google.elements.keyboard.Keyboard(
-  [google.elements.keyboard.LayoutCode.ENGLISH],
-  ['t1']);
-  return kbd;
-  }
-  
   function changeKeyboard() {
   var lang = document.getElementById("postLang").value;
-
-  var kbd = new google.elements.keyboard.Keyboard();
-  
   kbd.setLayout(lang);
   }
-  
-  
-  google.setOnLoadCallback(onLoad);
+
 </script>
 
 {% endblock %}
