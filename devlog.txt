@@ -90,7 +90,8 @@ yukiC -- 01/18/2017 18:48
 - Finished basic structure for viewPost.html, displays details of the post, with tabs for comments and edits
 
 jessicaT -- 01/19.2017 14:00
-- reversed posts
+- reversed posts order
+
 billyW -- 01/19/2017 18:13
 - facilated work in class and gave instructions for next steps
 
@@ -105,3 +106,13 @@ jessicaT -- 01/21/2017 02:00
 
 jessicaT -- 01/21/2017 19:50
 - adding and seeing edits
+
+yukiC -- 01/23/2017 20:03
+- worked on virtual keyboard and changing between keyboards depending on chosen language
+
+billyW -- 01/23/2017 22:07
+- facilitated group work and told members their tasks
+
+henryZ -- 01/23/17  <time>
+- 
+
