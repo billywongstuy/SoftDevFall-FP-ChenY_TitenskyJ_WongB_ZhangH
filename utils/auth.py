@@ -94,8 +94,6 @@ def getContributionsByUser(username):
     db.close()
     return list(set(comments))
 
-print getContributionsByUser('test')
-
 #testing cases
 #print addUser("test","funTimesAhead","funTimesAhead","Spanish,Chinese","English")
 
