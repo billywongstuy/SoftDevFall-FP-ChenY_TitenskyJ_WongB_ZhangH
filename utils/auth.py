@@ -68,10 +68,17 @@ def getPostsByUser(username):
     for x in var:
         temp=[]
         for y in x:
-            temp.append(str(y))
+            try:
+                u = str(y)
+                u.decode("utf-8")
+            except:
+                u = y
+	    temp.append(u)
         comments.append(temp)
     db.commit()
     db.close()
+    print comments
+    print "YEEEEEEEEEE"
     return comments
 
 def getContributionsByUser(username):
@@ -80,19 +87,33 @@ def getContributionsByUser(username):
     q="SELECT postID from comments where username=\'"+str(username)+"\'"
     c.execute(q)
     var=c.fetchall()
-    comments=[]
-    for x in var:
-        for y in x:
-            comments.append(str(y))
-    q="SELECT postID from comments where username=\'"+str(username)+"\'"
+    pids = []
+    for item in var:
+        if item[0] not in pids:
+            pids.append(item[0])
+    q="SELECT postID from revisions where username=\'"+str(username)+"\'"
     c.execute(q)
-    var=c.fetchall()
-    for x in var:
-        for y in x:
-            comments.append(str(y))
-    db.commit()
-    db.close()
-    return list(set(comments))
+    var2 = c.fetchall()
+    for item in var2:
+        if item[0] not in pids:
+            pids.append(item[0])
+    pids.sort()
+    posts =[]
+    for pid in pids:
+        q="SELECT * from posts where postId=" + str(pid)
+        c.execute(q)
+        pt = c.fetchall()[0]
+        p = []
+        for item in pt:
+            try:
+                u = str(item)
+                u.decode("utf-8")
+            except:
+                u = item
+            p.append(u)
+        posts.append(p)
+    return posts
+    
 
 def changeLanguages(newLangs, username):
     db=sqlite3.connect('data/info.db')

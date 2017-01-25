@@ -12,7 +12,12 @@ def displayPosts():
 	for x in var:
 		temp=[]
 		for y in x:
-			temp.append(str(y))
+                        try:
+                                u = str(y)
+                                u.decode("utf-8")
+                        except:
+                                u = y
+			temp.append(u)
 		posts.append(temp)
 	db.commit()
 	db.close()
@@ -50,7 +55,12 @@ def selectPosts(language):
 	for x in var:
 		temp=[]
 		for y in x:
-			temp.append(str(y))
+                        try:
+                                u = str(y)
+                                u.decode("utf-8")
+                        except:
+                                u = y
+			temp.append(u)
 		posts.append(temp)
 	db.commit()
 	db.close()

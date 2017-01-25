@@ -6,6 +6,23 @@
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
 
+  var dict =  {
+    'ARABIC': 'ar',
+    'BENGALI_PHONETIC': 'bn_phone',
+    'CHEROKEE': 'chr',
+    'DUTCH': 'nl',
+    'ENGLISH': 'en',
+    'FINNISH': 'fi',
+    'FRENCH': 'fr',
+    'GERMAN': 'de',
+    'ITALIAN': 'it',
+    'KOREAN': 'ko',
+    'RUSSIAN': 'ru',
+    'SPANISH': 'es_es',
+    'URDU': 'ur',
+    'VIETNAMESE_TELEX': 'vi_telex',
+  }
+  
   google.load("elements", "1", {
   packages: "keyboard"
   });
@@ -14,10 +31,9 @@
 
   function onLoad(){
   var s = document.getElementById("postLang").value;
-  console.log(s);
 
   kbd = new google.elements.keyboard.Keyboard();
-  kbd.setLayout(s);
+  kbd.setLayout(dict[s.toUpperCase()]);
   }
 
 
@@ -42,7 +58,7 @@
 	  Choose your post's language:
 	  <select name="postLang" id="postLang" onchange="changeKeyboard()">
 	    {% for item in optList %}
-	    <option value="{{item[0]}}">{{item[1]}}</option>
+	    <option value="{{item[1]}}">{{item[1]}}</option>
 	    {% endfor %}
 	  </select>
 	  <br><br>
@@ -61,9 +77,27 @@
 
 <!--<script type="text/javascript" src="https://www.google.com/jsapi"></script>-->
 <script type="text/javascript">
+
+  var dict =  {
+    'ARABIC': 'ar',
+    'BENGALI_PHONETIC': 'bn_phone',
+    'CHEROKEE': 'chr',
+    'DUTCH': 'nl',
+    'ENGLISH': 'en',
+    'FINNISH': 'fi',
+    'FRENCH': 'fr',
+    'GERMAN': 'de',
+    'ITALIAN': 'it',
+    'KOREAN': 'ko',
+    'RUSSIAN': 'ru',
+    'SPANISH': 'es_es',
+    'URDU': 'ur',
+    'VIETNAMESE_TELEX': 'vi_telex',
+  }
+  
   function changeKeyboard() {
   var lang = document.getElementById("postLang").value;
-  kbd.setLayout(lang);
+  kbd.setLayout(dict[lang.toUpperCase()]);
   }
 
 </script>

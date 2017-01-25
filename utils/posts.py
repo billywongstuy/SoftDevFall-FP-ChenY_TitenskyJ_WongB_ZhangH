@@ -12,9 +12,13 @@ def addPost(user, title, content, language):
                 print "Nothing"
         else:
                 lastPostID += 1
-	print lastPostID      
-	q="INSERT INTO posts VALUES (\'"+user+"\', "+ str(lastPostID) + ", \'" + title+ "\', \'" + content + "\', \'"+language+"\')"
-	print q;
+	print lastPostID
+        utitle = title
+        utitle.encode("utf-8")
+        ucon = content
+        ucon.encode("utf-8")
+	q="INSERT INTO posts VALUES (\'"+user+"\', "+ str(lastPostID) + ", \'" + utitle+ "\', \'" + ucon + "\', \'"+language+"\')"
+	#print q
 	c.execute(q)
 	db.commit()
 	db.close()
@@ -26,8 +30,14 @@ def viewPost(postID):
 	c.execute(q)
 	postTuple=c.fetchall()[0]
 	post=[]
-	for x in range(len(postTuple)):
-		post.append(str(postTuple[x]))
+        #append each item
+        for item in postTuple:
+                try:
+                        u = str(item)
+                        u.decode("utf-8")
+                except:
+                        u = item
+                post.append(u)
 	c.execute(q)
 	db.commit()
 	db.close()

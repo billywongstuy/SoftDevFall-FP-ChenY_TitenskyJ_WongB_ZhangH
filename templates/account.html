@@ -1,10 +1,26 @@
 {% extends "home.html" %}
 
 {% block leftContainer %}
+
+Native Language
+
+</br>{{native}}</br></br>
+
 Prefered Language
 {% endblock %}
 
 {% block languages %}
+<form action="/" method="POST">
+  {% for item in prefs %}
+  <div class="radio">
+    <label><input type="radio" value="{{item}}" name="lang">{{item}}</label>
+    <select name="postLang" id="postLang">
+      {% for item in optList %}
+      <option value="{{item[1]}}">{{item[1]}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  {% endfor %}
 {% endblock %}
 
 {% block rightContainer %}
@@ -25,6 +41,7 @@ Prefered Language
 	    <input type="hidden" value="{{post[1]}}" name="a">
 	    <button class="btn btn-link" role="link" type="submit">{{post[2]}}</button>
 	  </form>
+	  Posted by: <b>you</b> in <i>{{post[4]}}</i>
 	</div>
 	<div class="panel panel-body">{{post[3]}}</div>
       </div>
@@ -42,13 +59,14 @@ Prefered Language
       {% for comment in comments %}
       <div class="panel panel-primary">
 	<div class="panel panel-heading">
-	  <form id="c{{comment[2]}}" action="/viewPost" method="POST">
-	    <input type="hidden" value="{{comment[2]}}" name="a">
-	    <button class="btn btn-link" role="link" type="submit">{{comment[0]}}</button>
+	  <form id="{{comment[1]}}" action="/viewPost" method="POST">
+	    <input type="hidden" value="{{comment[1]}}" name="a">
+	    <button class="btn btn-link" role="link" type="submit">{{comment[2]}}</button>
 	  </form>
+	  Posted by: <b>{{comment[0]}}</b> in <i>{{comment[4]}}</i>
 	</div>
 	<div class="panel panel-body">
-	  {{comment[1]}}
+	  {{comment[3]}}
 	</div>
       </div>
       {% endfor %}

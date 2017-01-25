@@ -13,10 +13,8 @@ def addComment(user, postID, content):
         else:
         	lastCommentID += 1
 	print lastCommentID
-        con = content
-        con.encode("utf-8")
-	q="INSERT INTO comments VALUES (\'"+user+"\', "+ str(postID) + ", " + str(lastCommentID)+ ", \'" + con + "\')"
-	#print q
+	q="INSERT INTO comments VALUES (\'"+user+"\', "+ str(postID) + ", " + str(lastCommentID)+ ", \'" + content + "\')"
+	print q
 	c.execute(q)
 	db.commit()
 	db.close()
@@ -33,12 +31,7 @@ def getComments(postID):
 	for x in var:
 		temp=[]
 		for y in x:
-		        try:
-                                u = str(y)
-                                u.decode("utf-8")
-                        except:
-                                u = y
-                        temp.append(u)
+			temp.append(str(y))
 		comments.append(temp)
 	db.commit()
 	db.close()

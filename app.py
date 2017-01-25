@@ -68,7 +68,8 @@ def viewPost():
     e=revisions.getRevisions(request.form['a'])
     print "CCCCCCC"
     print c
-    return render_template("viewPost.html",post=p,comments=c,edits=e,optList=languageList(),defaultKeyboard=getKeyboard(p[4]))
+    return render_template("viewPost.html",post=p,comments=c,edits=e,optList=languageList(),defaultKeyboard="English")
+
 
 @app.route("/writeComment", methods=['POST'])
 def writeComment():
@@ -78,7 +79,7 @@ def writeComment():
     p=posts.viewPost(request.form['pid'])
     c=comments.getComments(request.form['pid'])
     e=revisions.getRevisions(request.form['pid'])
-    return render_template("viewPost.html",post=p,comments=c,edits=e)
+    return render_template("viewPost.html",post=p,comments=c,edits=e,defaultKeyBoard=getKeyboard(p[4]))
 
 @app.route("/makeEdit",methods=['POST'])
 def makeEdit():
@@ -100,20 +101,13 @@ def account():
     #Example of array
     #posts=[["username",0,"This is Title","Post Content blah","language"],["username",0,"This is Title","Post Content blah","language"]]
     postss=auth.getPostsByUser(session['username'])
+    postss.reverse()
     c=auth.getContributionsByUser(session['username'])
-    print "COMS"
-    print c
-    comments=[]
-    for k in c:
-        x=posts.viewPost(int(k))
-        y=[]
-        y.append(x[2])
-        y.append(x[3])
-        y.append(x[1])
-        comments.append(y)
-    print comments
-    #comments=[["Post title","comment content",0],["Post title","comment content",1],["Post title","comment content",2]]
-    return render_template("account.html",posts=postss,comments=comments)
+    c.reverse()
+    langs = topic.getLanguages(session['username'])
+    native = langs[0]
+    langs.pop(0)
+    return render_template("account.html",posts=postss,comments=c,prefs = langs,native = native, optList = languageList())
 
 @app.route("/createPost")
 def createPost():
@@ -128,7 +122,7 @@ def writePost():
     posts.addPost(session['username'],request.form['title'],request.form['words'],request.form['postLang'])
     return redirect("/")
 
-languageKeys={
+languageKeysAll={
     'ALBANIAN': 'sq',
     'ARABIC': 'ar',
     'ARMENIAN_EASTERN': 'hy_east',
@@ -213,6 +207,24 @@ languageKeys={
     'VIETNAMESE_TCVN': 'vi_tcvn',
     'VIETNAMESE_TELEX': 'vi_telex',
     'VIETNAMESE_VIQR': 'vi_viqr'
+}
+
+
+languageKeys = {
+    'ARABIC': 'ar',
+    'BENGALI_PHONETIC': 'bn_phone',
+    'CHEROKEE': 'chr',
+    'DUTCH': 'nl',
+    'ENGLISH': 'en',
+    'FINNISH': 'fi',
+    'FRENCH': 'fr',
+    'GERMAN': 'de',
+    'ITALIAN': 'it',
+    'KOREAN': 'ko',
+    'RUSSIAN': 'ru',
+    'SPANISH': 'es_es',
+    'URDU': 'ur',
+    'VIETNAMESE_TELEX': 'vi_telex',
 }
 
 def languageList():

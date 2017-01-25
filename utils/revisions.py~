@@ -12,9 +12,7 @@ def addRevision(user, postID, content):
                 print "Nothing"
         else:
         	lastRevisionID += 1
-        con = content
-        con.encode("utf-8")
-	q="INSERT INTO revisions VALUES (\'"+user+"\', "+ str(postID) + ", " + str(lastRevisionID)+ ", \'" + con + "\')"
+	q="INSERT INTO revisions VALUES (\'"+user+"\', "+ str(postID) + ", " + str(lastRevisionID)+ ", \'" + content + "\')"
 	c.execute(q)
 	db.commit()
 	db.close()
@@ -29,12 +27,7 @@ def getRevisions(postID):
 	for x in var:
 		temp=[]
 		for y in x:
-			try:
-                                u = str(y)
-                                u.decode("utf-8")
-                        except:
-                                u = y
-	                temp.append(u)
+			temp.append(str(y))
 		#comments.append(temp)
                 revisions.append(temp)
 	db.commit()
