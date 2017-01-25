@@ -151,3 +151,7 @@ billyW -- 01/25/2017 00:50
 
 jessicaT -- 01/25/2017 01:45
 - made prefered languages in account
+
+billyW -- 01/25/2017 10:26
+- bug fixes for changing preferred languages
+- made native and preferred languages show on top of filter bar of home
