@@ -13,7 +13,7 @@ def home():
         else:
             posts=topic.displayPosts()
         posts.reverse()
-        return render_template("home.html",posts=posts,optList=languageList(),uLangs = topic.getLanguages(session["username"]))
+        return render_template("home.html",posts=posts,optList=languageList())
     return render_template("login.html",message="")
 
 
@@ -98,10 +98,12 @@ def changeLang():
     if not 'username' in session:
         return redirect('/')
     print "RRRRRRR"
-    print request.form["plang1"]
+    print request.form
+    x=topic.getLanguages(session['username'])
     y=[]
-    y.append(request.form["plang1"])
-    y.append(request.form["plang2"])
+    for k in x:
+        if k!=x[0]:
+            y.append(request.form[k])
     auth.changeLanguages(y,session['username'])
     return redirect('/account')
 
@@ -117,8 +119,9 @@ def account():
     c=auth.getContributionsByUser(session['username'])
     c.reverse()
     langs = topic.getLanguages(session['username'])
-    native = langs.pop(0)
-    return render_template("account.html",posts=postss,comments=c,prefs = langs,native = native, optList = languageListAll())
+    native = langs[0]
+    langs.pop(0)
+    return render_template("account.html",posts=postss,comments=c,prefs = langs,native = native, optList = languageList())
 
 @app.route("/createPost")
 def createPost():
@@ -238,24 +241,10 @@ languageKeys = {
     'VIETNAMESE_TELEX': 'vi_telex',
 }
 
-
-def languageListAll():
+def languageList():
     optStr = []
     for key in languageKeys:
         pair = [languageKeys[key],key[0]+key[1:].lower()]
-        print pair
-        optStr.append(pair)
-    #return optStr
-    return sorted(optStr, key=lambda x: x[1])
-
-def languageList():
-    optStr = []
-    langKeys = languageKeys.copy()
-    uLangs = topic.getLanguages(session["username"])
-    for lang in uLangs:
-        langKeys.pop(lang.upper(),None)
-    for key in langKeys:
-        pair = [langKeys[key],key[0]+key[1:].lower()]
         print pair
         optStr.append(pair)
     #return optStr

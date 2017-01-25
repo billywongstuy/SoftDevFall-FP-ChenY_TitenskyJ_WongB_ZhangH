@@ -19,11 +19,6 @@
       </h3>
       {% block languages %}
       <form action="/" method="POST">
-	{% for item in uLangs %}
-	<div class="radio">
-	  <label><input type="radio" value="{{item}}" name="lang">{{item}}</label>
-	</div>
-	{% endfor %}
 	{% for item in optList %}
 	<div class="radio">
 	  <label><input type="radio" value="{{item[1]}}" name="lang">{{item[1]}}</label>

@@ -11,26 +11,28 @@ Prefered Languages:
 
 {% block languages %}
 <form action="changeLang" method="POST">
+
+  {% set n = 1 %}
   
-{% for item in prefs %}
-  <!--<div class="radio">
-    <label><input type="radio" value="{{item}}" name="lang">{{item}}</label>
-    --><select name="{{item}}" id="postLang">
+  {% for item in prefs %}
+  <select name="plang{{n}}" id="postLang">
 
-      {% for k in optList %}
-      {% if item==k[1] %}
-      <option value="{{k[1]}}" selected='selected'>{{k[1]}}</option>
-      {% endif %}
-      {% if item!=k[1] %}
-      <option value="{{k[1]}}">{{k[1]}}</option>
-      {% endif %}
-      {% endfor %}
-
-    </select>
-  <!--</div>-->
+    {% set n = n+1 %}
+  
+    {% for k in optList %}
+    {% if item==k[1] %}
+    <option value="{{k[1]}}" selected="selected">{{k[1]}}</option>
+    {% endif %}
+    {% if item!=k[1] %}
+    <option value="{{k[1]}}">{{k[1]}}</option>
+    {% endif %}
+    {% endfor %}
+    
+  </select>
+  
   {% endfor %}
 
-<br><br><input class="btn btn-primary" type="submit" value="Refresh">
+<br><br><input class="btn btn-primary" type="submit" value="Update">
       </form>
 
  {% endblock %}
