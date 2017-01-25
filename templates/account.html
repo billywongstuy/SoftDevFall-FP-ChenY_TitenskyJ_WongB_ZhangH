@@ -2,26 +2,38 @@
 
 {% block leftContainer %}
 
-Native Language
+Native Language:
 
 </br>{{native}}</br></br>
 
-Prefered Language
+Prefered Languages:
 {% endblock %}
 
 {% block languages %}
-<form action="/" method="POST">
-  {% for item in prefs %}
-  <div class="radio">
+<form action="changeLang" method="POST">
+  
+{% for item in prefs %}
+  <!--<div class="radio">
     <label><input type="radio" value="{{item}}" name="lang">{{item}}</label>
-    <select name="postLang" id="postLang">
-      {% for item in optList %}
-      <option value="{{item[1]}}">{{item[1]}}</option>
+    --><select name="{{item}}" id="postLang">
+
+      {% for k in optList %}
+      {% if item==k[1] %}
+      <option value="{{k[1]}}" selected='selected'>{{k[1]}}</option>
+      {% endif %}
+      {% if item!=k[1] %}
+      <option value="{{k[1]}}">{{k[1]}}</option>
+      {% endif %}
       {% endfor %}
+
     </select>
-  </div>
+  <!--</div>-->
   {% endfor %}
-{% endblock %}
+
+<br><br><input class="btn btn-primary" type="submit" value="Refresh">
+      </form>
+
+ {% endblock %}
 
 {% block rightContainer %}
 <ul class="nav nav-tabs">
