@@ -148,3 +148,6 @@ billyW -- 01/25/2017 00:50
 - allowed for input of unicode characters
 - fixed filter search
 - started work on preferred languages on account page
+
+jessicaT -- 01/25/2017 01:45
+- made prefered languages in account
