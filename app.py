@@ -77,7 +77,7 @@ def viewPost():
     e=revisions.getRevisions(request.form['a'])
     print "CCCCCCC"
     print c
-    return render_template("viewPost.html",post=p,comments=c,edits=e,optList=languageList(),defaultKeyboard="English")
+    return render_template("viewPost.html",post=p,comments=c,edits=e,optList=languageListAll(),defaultKeyboard="English")
 
 
 @app.route("/writeComment", methods=['POST'])
