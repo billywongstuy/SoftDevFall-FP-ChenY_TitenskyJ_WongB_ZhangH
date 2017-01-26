@@ -6,6 +6,9 @@
 3. Run the Flask server by typing ```python app.py``` into your terminal
 4. Open http://127.0.0.1:5000/ on your browser. 
 
+### Video Demonstration
+https://www.youtube.com/watch?v=YuUcHNh01O0
+
 ### About
 
 When you first open the page, you will see a login page.
@@ -26,10 +29,15 @@ You can add a comment to give the poster praise or feedback. Or you can add an e
 
 As the poster, you can view all of your posts on your account page. From there, you can click on the posts to see if you received any edits or comments. You can also change your language preferences on your account page.
 
+### APIS
+
+Google Virtual Keyboard API: https://developers.google.com/virtual-keyboard/
+Allows for keyboard switching to accommodate the use of multiple languages
 
 ### Bugs
 
 Currently malfunctions with quotes
+
 
 ### Last Words
 
