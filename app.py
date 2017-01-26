@@ -14,7 +14,8 @@ def home():
             posts=topic.displayPosts()
         posts.reverse()
         return render_template("home.html",posts=posts,optList=languageList(),uLangs = topic.getLanguages(session["username"]))
-    return render_template("login.html",message="")
+    m = request.args.get("message")
+    return render_template("login.html",message=m)
 
 
 @app.route("/login", methods=['POST'])
@@ -43,7 +44,7 @@ def createAccount():
         plangs = request.form['plang1'] + "," + request.form['plang2']
     x=auth.addUser(request.form['username'],request.form['pw'],request.form['pwc'],plangs,request.form['nlang'])
     if x==1:
-        return redirect(url_for("login",message = "Account successfully created"))
+        return redirect(url_for("home",message = "Account successfully created"))
         #return render_template("login.html",message="account successfully created")
     if x==2:
         #return render_template("register.html",message="invalid character in username")
