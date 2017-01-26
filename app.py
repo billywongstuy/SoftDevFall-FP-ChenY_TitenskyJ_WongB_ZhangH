@@ -40,8 +40,10 @@ def createAccount():
         plangs = request.form['plang1'] + "," + request.form['plang2']
     x=auth.addUser(request.form['username'],request.form['pw'],request.form['pwc'],plangs,request.form['nlang'])
     if x==1:
-        return render_template("login.html",message="account successfully created")
+        return redirect(url_for("login",message = "account successfully created"))
+        #return render_template("login.html",message="account successfully created")
     if x==2:
+        #return render_template("register.html",message="invalid character in username")
         return render_template("register.html",message="invalid character in username")
     if x==3:
         return render_template("register.html",message="password too short")
@@ -124,7 +126,7 @@ def account():
 def createPost():
     if not 'username' in session:
         return redirect("/")
-    return render_template("writePost.html",optList=languageList())
+    return render_template("writePost.html",optList=languageListAll())
 
 @app.route("/writePost",methods=['POST'])
 def writePost():
