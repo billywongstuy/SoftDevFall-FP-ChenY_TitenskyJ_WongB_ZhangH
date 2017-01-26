@@ -23,34 +23,25 @@
       <div class="col-md-12">
 	Prefered Language 1: 
 	<select class="form-control" name="plang1" required>
-	  <option>English</option>
-	  <option>Spanish</option>
-	  <option>Italian</option>
-	  <option>Russian</option>
-	  <option>French</option>
-	  <option>Japanese</option>
+	  {% for item in langs %}
+	  <option>{{item[1]}}</option>
+	  {% endfor %}
 	</select>
       </div>
       <div class="col-md-12">
 	Prefered Language 2:
 	<select class="form-control" name="plang2">
-	  <option>English</option>
-	  <option>Spanish</option>
-	  <option>Italian</option>
-	  <option>Russian</option>
-	  <option>French</option>
-	  <option>Japanese</option>
+	  {% for item in langs %}
+	  <option>{{item[1]}}</option>
+	  {% endfor %}
 	</select>
       </div>
       <div class="col-md-12">
 	Native Language: 
 	<select class="form-control" name="nlang">
-	  <option>English</option>
-	  <option>Spanish</option>
-	  <option>Italian</option>
-	  <option>Russian</option>
-	  <option>French</option>
-	  <option>Japanese</option>
+	  {% for item in langs %}
+	  <option>{{item[1]}}</option>
+	  {% endfor %}
 	</select>
       </div>
     </div>

@@ -29,7 +29,7 @@ def login():
 
 @app.route("/register")
 def register():
-   return render_template("register.html")
+   return render_template("register.html",langs=languageListAll())
 
 @app.route("/createAccount", methods=['POST'])
 #routing is still messed up
