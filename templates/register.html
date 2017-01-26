@@ -8,6 +8,9 @@
 
 {% block body %}
 <div class="container">
+  {% if not message == "" %}
+  <div class="alert alert-danger" role="alert">{{ message }}</div>
+  {% endif %}
   <h1>Register</h1><br><br>
   <form method="POST" action="/createAccount">
     <div class="row">
@@ -47,6 +50,5 @@
     </div>
     <input class="btn btn-primary" type="submit" value="Register">
   </form>
-  {{ message }}
 </div>
 {% endblock %}

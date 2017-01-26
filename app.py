@@ -27,9 +27,12 @@ def login():
     if x[0]=='False':
         return render_template("login.html",message=x[1])
 
-@app.route("/register")
+@app.route("/register", methods=['GET','POST'])
 def register():
-   return render_template("register.html",langs=languageListAll())
+    m = request.args.get("message")
+    if m == None:
+        m = ""
+    return render_template("register.html",langs=languageListAll(),message=m)
 
 @app.route("/createAccount", methods=['POST'])
 #routing is still messed up
@@ -40,17 +43,20 @@ def createAccount():
         plangs = request.form['plang1'] + "," + request.form['plang2']
     x=auth.addUser(request.form['username'],request.form['pw'],request.form['pwc'],plangs,request.form['nlang'])
     if x==1:
-        return redirect(url_for("login",message = "account successfully created"))
+        return redirect(url_for("login",message = "Account successfully created"))
         #return render_template("login.html",message="account successfully created")
     if x==2:
         #return render_template("register.html",message="invalid character in username")
-        return render_template("register.html",message="invalid character in username")
+        return redirect(url_for("register",message="Invalid character in username"))
     if x==3:
-        return render_template("register.html",message="password too short")
+        #return render_template("register.html",message="password too short")
+        return redirect(url_for("register",message="Password too short"))
     if x==4:
-        return render_template("register.html",message="username already in use")
+        #return render_template("register.html",message="username already in use")
+        return redirect(url_for("register",message="Username already in use"))
     if x==5:
-        return render_template("register.html",message="passwords do not match")
+        #return render_template("register.html",message="passwords do not match")
+        return redirect(url_for("register",message="Passwords do not match"))
 
 @app.route("/logout")
 def logout():
