@@ -27,6 +27,10 @@ You can add a comment to give the poster praise or feedback. Or you can add an e
 As the poster, you can view all of your posts on your account page. From there, you can click on the posts to see if you received any edits or comments. You can also change your language preferences on your account page.
 
 
+### Bugs
+
+Currently malfunctions with quotes
+
 ### Last Words
 
 Be respectful to others, and enjoy!
